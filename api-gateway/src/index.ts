@@ -6,7 +6,7 @@ import apiRouter from './routes';
 
 const app = express();
 
-app.use(cors({ origin: config.corsOrigin }));
+app.use(cors()); // Allow all origins for Vercel
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -35,7 +35,7 @@ app.use(
 );
 
 app.listen(config.port, () => {
-  console.log(`API Gateway dang chay tai cong ${config.port}`);
+  console.log(`API Gateway dang chay tai port ${config.port}`);
   console.log(`AI service: ${config.aiServiceUrl}`);
   console.log(`Shared storage: ${config.sharedStoragePath}`);
 });
